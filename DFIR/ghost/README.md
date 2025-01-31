@@ -6,19 +6,22 @@ Although she's unseen but she's trying to whisper some secrets, try to reveal th
 ~you may want to check discord as well ~ 
 
 # initial analysis
-From the descreption i notice that for sure i need to focus to some details because they are talking about ghost == hidden things == things you can't see. Also we only have .xlsm file and the first guess in my mind is something in the macros .
+From the description, it's clear that I need to focus on hidden details, as the reference to a "ghost" suggests something unseen or concealed. Additionally, the only provided file is an .xlsm (Excel macro-enabled file), which immediately makes me think that the macros might contain something important. 
 
 # analysis 
-When opening the file this image pops up, and if you focus more you can see the name of sheet " Sheet one and **!only** " means there is another hidden sheet.
+### Step 1: Inspecting the excel file
+Upon opening the file, an image pops up. If you pay close attention, you can see that the sheet is named " Sheet one and **!only** " means there is another hidden sheet.
 
 ![image](https://github.com/user-attachments/assets/49f32b32-4f1e-4f2d-9610-b0a747ebe69d)
 
-The second sheet have some arabic flags and text on it to ** pray and support them **, when making some changes on them " moving ,changing text color, deleting "
-i notice that there is a text hidden below **lebanon flag** and said  **"Can_You_See_My_ghostie_Password?"** but where to put it ?
+Indeed, after further inspection, I found a second hidden sheet. This sheet contained several *Arabic flags and text encouraging prayer and support*.
+
+When I attempted to interact with the sheet by **moving elements, changing text color, or deleting content**, I discovered hidden text beneath the Lebanon flag and said  **"Can_You_See_My_ghostie_Password?"** but where should i use this password ? 
 
 <img src="https://github.com/user-attachments/assets/d111931a-c785-4e5d-ab01-b7b90f51435c" alt="image2" style="width:400px;height:400px; display: flex; "/> <img src="https://github.com/user-attachments/assets/feb092bb-b599-430c-8df5-298a50606d08" alt="image3" style="width:400px; display: flex;"/> 
 
-After checking the macros i found this one that ping to this website *https://pastebin.com/wAxAYrx1*
+### Step 2:Examining the Macros
+Since the file is macro-enabled (.xlsm), I checked the VBA macros and found the following script that ping to this website *https://pastebin.com/wAxAYrx1*
 ```
 Rem Attribute VBA_ModuleType=VBAModule
 Option VBASupport 1
@@ -26,7 +29,7 @@ Sub ghost()
 https://pastebin.com/wAxAYrx1
 End Sub
 ```
-Using the previous password "Can_You_See_My_ghostie_Password?" give us this hex code :
+Using the previous password "Can_You_See_My_ghostie_Password?" give us this hexadecimal code :
 ```
 don't forgot to pray for palastine/sudan/syria :)  here's your flag mate ( or .. 3 more steps to it, UK, I'm a ghost, u need to
 break a lot of barriers in order to communicate with me ! ) :
@@ -42,14 +45,97 @@ break a lot of barriers in order to communicate with me ! ) :
 78 73 36 79 33 49 53 45 42 41 41 45 41 44 49 44 57 67 74 73 41 43 41 6f 42 76 4e 70 50 52 41 41 41 42 51 45 52 47 77 42 6d 41 47
 77 41 59 51 42 6e 41 43 34 41 64 41 42 34 41 48 51 41 4c 67 42 30 41 48 67 41 64 41 41 41 41 42 6b 41 46 41 6f 42 41 4c 38 47 52
 32 6d 47 38 4e 6f 42 46 51 59 42 41 43 41 41 41 41 41 41 41 41 3d 3d
-``` 
-As you see it's an hex code, so going to *https://gchq.github.io/CyberChef/* to see what's hidden here :
-**From HEX** the output is :
+```
+### Step 3: Decoding the Hex DATA
+Since the string was in hexadecimal, I used CyberChef *https://gchq.github.io/CyberChef/* to decode it.
+Using the **From HEX**function, i obtained :
 ```
 N3q8ryccAATACpQi4AAAAAAAAAByAAAAAAAAAJnLd8TIom9ATJvvSaB8wdSHk0B8YjBJzeaKUkFZgi4H2yPVFhQYWJ113xPPF9AIUJL/rjejDUSxwVx6uIhRkS9e1f3nMHOKGv/6R8yJpVgo+UJCorYvZXIGV/87WirUQe+b90DKX8JeCa71ngScCT53viUV/t5TaSkfKTpWzmD7H2J3qRXacW8IqjmSJov1LageCFnHSSnwCqJJ0f8dZN0Gu9VAInZj9Wqqyrrui0BEocUvpUAlbQxyMQtfD9j7yLuwYXZBr7qVdXT6vmlZJ4aoZ32y3eoivDm3dQ3oPTb88ikIjAEEBgABCYDgAAcLAQACJAbxBwESUw9XATghQTzcDKEC7zKxs6y3ISEBAAEADIDWgtsACAoBvNpPRAAABQERGwBmAGwAYQBnAC4AdAB4AHQALgB0AHgAdAAAABkAFAoBAL8GR2mG8NoBFQYBACAAAAAAAA==
 ```
-We notice that the output ends with "==" so its likely coded in BASE64, using the same website to decode it:
+We notice that the output ends with "==" so its likely coded in BASE64.
+### Step 4: Decoding the Base64 Data
+Using the same website to decode it:
 **FROM BASE64** the output is :
+
+![image](https://github.com/user-attachments/assets/9f6fdbac-ddcc-46ac-abb3-10369543b0fa)
+
+as you can see in the first line we have **7z** so it's an 7z file.
+### Step 5: Extracting the Archive
+I saved the decoded data as download.7z and verified its format using the command:
 ```
+file download.7z                                                                                                                                 
+download.7z: 7-zip archive data, version 0.4
+```
+Using the command *7z l file* allow us to see the content of the file
+```
+7z l download.7z                                                                                                                                                                                                                      
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=en_US.UTF-8 Threads:32 OPEN_MAX:1024
+
+Scanning the drive for archives:
+1 file, 370 bytes (1 KiB)
+
+Listing archive: download.7z
+
+--
+Path = download.7z
+Type = 7z
+Physical Size = 370
+Headers Size = 146
+Method = LZMA2:12 7zAES
+Solid = -
+Blocks = 1
+
+   Date      Time    Attr         Size   Compressed  Name
+------------------- ----- ------------ ------------  ------------------------
+2024-08-17 04:18:24 ....A          731          224  flag.txt.txt
+------------------- ----- ------------ ------------  ------------------------
+2024-08-17 04:18:24                731          224  1 files
+
 
 ```
+### Step 6: Unzip the file
+Now the goal is to **brute-force** the file using **7z2john**, but using an entire wordlist is a time-consuming and beside that we have a hint "*ghost ghost ghost ....Love everything that has "ghost" in it 👻* 
+we can say that the password has "*ghost*" in it. So from the *rockyoulist* we can only extract words with *ghost* in it using *grep*.
+```
+cat /usr/share/wordlists/rockyou.txt | grep -i "ghost*" > ghostlist.txt
+7z2john Desktop/download.7z > Desktop/hash.txt
+john --wordlist=ghostlist.txt Desktop/hash.txt                                                                                                                                                                                        
+Using default input encoding: UTF-8
+Loaded 1 password hash (7z, 7-Zip archive encryption [SHA256 128/128 AVX 4x AES])
+Cost 1 (iteration count) is 524288 for all loaded hashes
+Cost 2 (padding size) is 10 for all loaded hashes
+Cost 3 (compression type) is 2 for all loaded hashes
+Cost 4 (data length) is 214 for all loaded hashes
+Will run 2 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+ghostwhisperer   (download.7z)     
+1g 0:00:00:06 DONE (2025-01-31 15:54) 0.1494g/s 20.32p/s 20.32c/s 20.32C/s holyghost7..ghostring
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed. 
+```
+The password is **ghostwhisperer**
+### Step 7: Extract and Read the Flag
+
+```
+cat flag.txt.txt                                                                                                                                                                                                                      
+Ai-impored ghost! now i can finally communicate with you humans! are you smart enough to detect my words ?
+file flag.txt.txt                                                                                                                                                                                                                     
+flag.txt.txt: Unicode text, UTF-8 text, with very long lines (315), with no line terminators
+```
+As you can see, displaying the content of the file *flag.txt.txt* didnt lead us to anything, the problem here is using **cat** to display it, because a regular cat will print the nulls to standard output, but your terminal will generally display them each as nothing, while cat -v represents them as ^@.
+```
+cat -v flag.txt.txt                                                                                                                                                                                                                   
+Ai-M-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^MM-bM-^@M-^MM-bM-^@M-^LM-oM-;M-?impored M-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^MM-bM-^@M-,M-bM-^@M-^MM-bM-^@M-^MM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^MM-bM-^@M-,M-bM-^@M-^LM-oM-;M-?ghostM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^MM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^M! now iM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^MM-bM-^@M-^LM-bM-^@M-,M-bM-^@M-^M canM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^MM-oM-;M-?M-bM-^@M-,M-oM-;M-? finallyM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-oM-;M-?M-bM-^@M-^MM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^MM-bM-^@M-^MM-oM-;M-?M-oM-;M-?M-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^MM-bM-^@M-,M-bM-^@M-^MM-oM-;M-? M-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^MM-bM-^@M-,M-bM-^@M-,M-bM-^@M-^LcommunicateM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-oM-;M-?M-bM-^@M-^LM-bM-^@M-^L withM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^MM-oM-;M-?M-bM-^@M-^LM-oM-;M-? youM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^MM-oM-;M-?M-bM-^@M-^MM-bM-^@M-^L humans! areM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^MM-bM-^@M-^MM-oM-;M-?M-oM-;M-?M-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-oM-;M-?M-bM-^@M-^LM-bM-^@M-^M youM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^MM-bM-^@M-,M-oM-;M-?M-bM-^@M-,M-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^MM-bM-^@M-^MM-oM-;M-?M-oM-;M-? smart M-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^MM-oM-;M-?M-bM-^@M-^MM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^MM-bM-^@M-,M-bM-^@M-,M-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-oM-;M-?M-bM-^@M-^LM-oM-;M-?M-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^MM-bM-^@M-^MM-oM-;M-?M-oM-;M-?enough M-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^MM-bM-^@M-,M-bM-^@M-^MM-bM-^@M-,to detectM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-oM-;M-?M-bM-^@M-^LM-bM-^@M-^M M-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^MM-bM-^@M-,M-oM-;M-?M-bM-^@M-^Lmy wordsM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-oM-;M-?M-bM-^@M-^LM-oM-;M-?M-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^LM-bM-^@M-^MM-oM-;M-?M-oM-;M-?M-bM-^@M-^M ?
+```
+and if you try to open the file in a texteditor like **vscode** or **sublime** you will have this output :
+```
+Ai-<0x200c><0x200c><0x200c><0x200c><0x200c><0xffef>impored .....etc
+```
+**<0x200c>** is The zero-width non-joiner (ZWNJ) (‌) is a non-printing character used in the computerization of writing systems that make use of ligatures. 
+
+Using this website *https://330k.github.io/misc_tools/unicode_steganography.html* to decode the type of text and the output it :
+**SecAI{4_gh0st_1n_th3_f1l3}** 
+
+It's the **flag**
