@@ -19,6 +19,7 @@ From the first image we can see that there is something hide in the first part o
 ![image](https://github.com/user-attachments/assets/b0ba9056-025d-4692-9c06-ec38b78d547d)
 
 After viewing how to use this software, and after just using **Pane -> Add Spectogram** :
+
 ![image](https://github.com/user-attachments/assets/4978e675-365d-446d-992d-207f12f1c0a9)
 
 It comes to my mind to clear this image even more and playing with colors using *canva or photoshop*, and here is the final result:
