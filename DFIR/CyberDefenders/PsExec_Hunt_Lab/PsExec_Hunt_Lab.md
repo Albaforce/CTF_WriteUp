@@ -1,4 +1,4 @@
-### Link of the lab : [text](https://cyberdefenders.org/blueteam-ctf-challenges/psexec-hunt/)
+### Link of the lab : [open](https://cyberdefenders.org/blueteam-ctf-challenges/psexec-hunt/)
 
 # Description:
 An alert from the Intrusion Detection System (IDS) flagged suspicious lateral movement activity involving PsExec. This indicates potential unauthorized access and movement across the network. As a SOC Analyst, your task is to investigate the provided PCAP file to trace the attacker’s activities. Identify their entry point, the machines targeted, the extent of the breach, and any critical indicators that reveal their tactics and objectives within the compromised environment.
@@ -71,7 +71,7 @@ This entire attack is based on PsExec. From the analysis, the service executable
 
 A network share is **a resource on a local network that can be accessed by others** and is generally written in this format: `\\<ip address>\<name>$`.
 
-When analyzing the packets, we observe the following shares: `\IPC$` and `\ADMIN$`. After research, we find:
+When analyzing the packets, we observe the following shares: `\IPC$` and `\ADMIN$`. After research, i found:
 - **`ADMIN$`**: Points to the Windows installation directory (usually `C:\Windows`).
 - **`IPC$`**: Used for inter-process communication (e.g., for connecting to remote services).
 
@@ -100,3 +100,5 @@ And yes, the answer is:
 **The answer is:** `Marketing-PC`
 
 ---
+
+Thanks to CyberDefenders for this amazing challenge . <3
